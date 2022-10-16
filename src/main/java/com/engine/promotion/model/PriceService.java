@@ -18,6 +18,6 @@ public class PriceService {
 	}
 	
 	public Double getUnitPrice(String skuId) {
-		return priceMap.getOrDefault(skuId, null);
+		return priceMap.getOrDefault(skuId, 0.0);
 	}
 }
