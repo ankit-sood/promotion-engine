@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.engine.promotion.model.Cart;
+import com.engine.promotion.model.PromotionRule;
 
 @Service
 public class PriceCalculationService {
@@ -26,11 +27,19 @@ public class PriceCalculationService {
 	@Qualifier("defaultPromotionRule")
 	private Promotion defaultPromotionRule;
 	
+	@Autowired
+	private PromotionRuleService promotionRuleService;
+	
 	public double getTotalPrice(Cart cart) {
 		Map<String, Integer> products = cart.getProductMap();
-		//get the first promotion stored for a productID
-		//products.keySet().stream().forEach(action);
-		return 0;
+		double finalPrice = 0.0;
+		for(String key: products.keySet()) {
+			PromotionRule rule = promotionRuleService.getPromotionRule(key);
+			if(rule != null) {
+				finalPrice += getPromotionImpl(rule.getOfferType()).getOfferPrice(key, rule, products);
+			}
+		}
+		return finalPrice;
 	}
 	
 	private Promotion getPromotionImpl(String offerType) {
