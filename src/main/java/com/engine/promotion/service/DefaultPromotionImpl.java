@@ -1,11 +1,11 @@
-package com.engine.promotion.model;
+package com.engine.promotion.service;
 
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.engine.promotion.service.Promotion;
+import com.engine.promotion.model.PromotionRule;
 
 import lombok.AllArgsConstructor;
 

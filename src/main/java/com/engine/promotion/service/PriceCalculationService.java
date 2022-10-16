@@ -1,10 +1,12 @@
-package com.engine.promotion.model;
+package com.engine.promotion.service;
+
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.engine.promotion.service.Promotion;
+import com.engine.promotion.model.Cart;
 
 @Service
 public class PriceCalculationService {
@@ -25,6 +27,9 @@ public class PriceCalculationService {
 	private Promotion defaultPromotionRule;
 	
 	public double getTotalPrice(Cart cart) {
+		Map<String, Integer> products = cart.getProductMap();
+		//get the first promotion stored for a productID
+		//products.keySet().stream().forEach(action);
 		return 0;
 	}
 	

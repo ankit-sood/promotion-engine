@@ -1,4 +1,4 @@
-package com.engine.promotion.model;
+package com.engine.promotion.service;
 
 import java.util.HashMap;
 import java.util.Map;
