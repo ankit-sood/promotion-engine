@@ -19,7 +19,7 @@ public class DiscountPercentRuleImpl implements Promotion{
 	public double getOfferPrice(String skuId, PromotionRule rule, Map<String, Integer> productMap) {
 		double price = 0.0;
 		int orderedQty = productMap.getOrDefault(skuId, 0);
-		price = orderedQty  * priceService.getUnitPrice(skuId) * (1 - rule.getOfferPrice());
+		price = orderedQty  * priceService.getUnitPrice(skuId) * ((100 - rule.getOfferPrice())/100);
 		return price;
 	}
 
