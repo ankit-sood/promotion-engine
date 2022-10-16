@@ -17,16 +17,19 @@ public class PromotionRuleService {
 		promotionRulesMap = new HashMap<>();
 		List<PromotionRule> rules = new ArrayList<>();
 		rules.add(getDiscountPriceRule("A", 3, 130.0));
-		rules.add(getComboPriceRule("A", 30.0, "D"));
 		promotionRulesMap.put("A", rules);
-		
-		rules = new ArrayList<>();
-		rules.add(getComboPriceRule("D", 30.0, "A"));
-		promotionRulesMap.put("D", rules);
 		
 		rules = new ArrayList<>();
 		rules.add(getDiscountPriceRule("B", 2, 45.0));
 		promotionRulesMap.put("B", rules);
+		
+		rules = new ArrayList<>();
+		rules.add(getComboPriceRule("C", 30.0, "D"));
+		promotionRulesMap.put("C", rules);
+		
+		rules = new ArrayList<>();
+		rules.add(getComboPriceRule("D", 30.0, "C"));
+		promotionRulesMap.put("D", rules);
 		
 	}
 	
