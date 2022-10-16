@@ -35,9 +35,8 @@ public class PriceCalculationService {
 		double finalPrice = 0.0;
 		for(String key: products.keySet()) {
 			PromotionRule rule = promotionRuleService.getPromotionRule(key);
-			if(rule != null) {
-				finalPrice += getPromotionImpl(rule.getOfferType()).getOfferPrice(key, rule, products);
-			}
+			String offerType = rule != null ? rule.getOfferType() : null;
+			finalPrice += getPromotionImpl(offerType).getOfferPrice(key, rule, products);
 		}
 		return finalPrice;
 	}

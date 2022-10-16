@@ -21,7 +21,7 @@ public class DiscountPriceRuleImpl implements Promotion{
 		int orderedQty = productMap.getOrDefault(skuId, 0);
 		int count = orderedQty/rule.getMinQty();
 		price = (rule.getOfferPrice() * count) + 
-				(orderedQty - (count * rule.getMinQty()) * priceService.getUnitPrice(skuId));
+				((orderedQty - (count * rule.getMinQty())) * priceService.getUnitPrice(skuId));
 		return price;
 	}
 
